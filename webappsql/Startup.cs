@@ -26,7 +26,12 @@ namespace webappsql
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<PgConnectionConfig>(Configuration.GetSection(nameof(PgConnectionConfig)));
+            services.Configure<PgConnectionConfig>(opt => 
+            {
+                opt.ConnectionUri = Configuration["DATABASE_URL"];
+                opt.Password = Configuration["DATABASE_PASSWORD"];
+                opt.Username = Configuration["DATABASE_USER"];
+            });
             services.AddSingleton<IDatabase>(x => new PgSqlDatabase(x.GetService<IOptions<PgConnectionConfig>>().Value));
 
             services.AddRazorPages();
