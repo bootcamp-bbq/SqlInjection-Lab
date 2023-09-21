@@ -10,8 +10,8 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."Product"
-    OWNER to fbuueadldkvlca;
+-- ALTER TABLE public."Product"
+--     OWNER to fbuueadldkvlca;
 
 
 INSERT INTO "Product"
@@ -79,8 +79,8 @@ WITH (
     OIDS = FALSE
 );
 
-ALTER TABLE public."Users"
-    OWNER to fbuueadldkvlca;
+-- ALTER TABLE public."Users"
+--     OWNER to fbuueadldkvlca;
 
 
 INSERT INTO "Users"
