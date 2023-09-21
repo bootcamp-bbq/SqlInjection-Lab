@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form method="GET">
+        <div class="form-group">
+            <label for="productSearch">Product: </label>
+            <input type="text" asp-for="SearchString" class="form-control" placeholder="Enter a product name" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+
+<div class="row">
+    <ul class="list-group">
+        @foreach (var item in Model.ProductColl)
+        {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            @item.Id | @item.Name
+            <span class="badge badge-primary badge-pill">@item.Price</span>
+        </li>
+        }
+    </ul>
+</div>
